@@ -20,9 +20,6 @@
     "typo3/cms-core": "^12.4 || ^13.4"
   },
   "extra": {
-    "deployer": {
-      "loader-file": "config/loader.php"
-    },
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": ".Build/Web"
