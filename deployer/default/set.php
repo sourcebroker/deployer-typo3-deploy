@@ -12,10 +12,16 @@ set('branch_detect_to_deploy', false);
 
 set('log_files', 'var/log/typo3_*.log');
 
-$composerConfig = json_decode(file_get_contents('./composer.json'), true, 512, JSON_THROW_ON_ERROR);
+$composerConfig = null;
+if (file_exists('./composer.json')) {
+    $composerContent = file_get_contents('./composer.json');
+    if ($composerContent !== false) {
+        $composerConfig = json_decode($composerContent, true);
+    }
+}
 
 set('web_path', function () use ($composerConfig) {
-    if ($composerConfig['extra']['typo3/cms']['web-dir'] ?? false) {
+    if ($composerConfig !== null && isset($composerConfig['extra']['typo3/cms']['web-dir'])) {
         return rtrim($composerConfig['extra']['typo3/cms']['web-dir'], '/') . '/';
     }
 
@@ -23,7 +29,7 @@ set('web_path', function () use ($composerConfig) {
 });
 
 set('bin/typo3', function () use ($composerConfig) {
-    if ($composerConfig['config']['bin-dir'] ?? false) {
+    if ($composerConfig !== null && isset($composerConfig['config']['bin-dir'])) {
         return $composerConfig['config']['bin-dir'] . '/typo3';
     }
 

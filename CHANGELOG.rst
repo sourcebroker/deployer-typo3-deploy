@@ -7,6 +7,7 @@ Changelog
 
 1) [TASK][BREAKING] Remove ``writable_mode``, ``default_timeout``, ``keep_releases`` out of standard configuration. Use default values from
    deployer or build you custom package to manage.
+2) [TASK] Refactor taking values for ``web_path`` and ``bin/typo3`` from composer.json.
 
 0.2.0
 ~~~~~
