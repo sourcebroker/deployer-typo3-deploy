@@ -65,7 +65,6 @@ set('clear_paths', [
     '.ddev',
     '.editorconfig',
     '.envrc',
-    '.env.dist',
     '.git',
     '.gitattributes',
     '.githooks',
@@ -80,7 +79,6 @@ set('clear_paths', [
     'phpcs.xml',
     'phpstan-baseline.neon',
     'phpstan.neon',
-    'README.md',
     'rector.php',
     'typoscript-lint.yml'
 ]);
