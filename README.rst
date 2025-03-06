@@ -38,12 +38,12 @@ Installation
    ``vendor/sourcebroker/deployer-typo3-deploy/deployer/default/deploy/task/deploy.php``. Look at
    `Example of working configuration`_ to see how simple can be working ``deploy.php`` file.
 
-   If you want to update language files on each deploy add task ``typo3cms:language:update`` before ``deploy_symlink``.
+   If you want to update language files on each deploy add task ``typo3:language:update`` before ``deploy_symlink``.
    Read https://github.com/sourcebroker/deployer-extended-typo3/discussions/14 to see why updating language labels on
    each deploy is very arguable and generally not advised.
    ::
 
-      before('deploy_symlink', 'typo3cms:language:update');
+      before('deploy_symlink', 'typo3:language:update');
 
 
 Deployment
@@ -73,6 +73,7 @@ For TYPO3 13 the shared dirs are:
       ];
   });
 
+
 Shared files
 ++++++++++++
 
@@ -80,20 +81,6 @@ The shared file for TYPO3 13 is:
 ::
 
    set('shared_files', ['.env']);
-
-
-Composer
-++++++++
-
-You can set proper version of composer with ``composer_channel`` (values: 1, 2, stable, prelive, snapshot) or with
-``composer_version`` which takes exact tags as arguments (https://github.com/composer/composer/tags). For stability and
-security it is advised that you set ``composer_channel`` with value ``1`` or ``2`` so it will be automatically updated
-but will not install any new major version in future so your deploy will remain fairly stable. The default value is ``2``.
-
-::
-
-   set('composer_channel', 2);
-
 
 
 Example of working configuration
@@ -109,8 +96,11 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
 
   namespace Deployer;
 
-  require_once(__DIR__ . '/vendor/sourcebroker/deployer-loader/autoload.php');
-  new \SourceBroker\DeployerExtendedTypo3\Loader();
+  require_once('./vendor/autoload.php');
+
+  new \SourceBroker\DeployerLoader\Load([
+    ['get' => 'sourcebroker/deployer-typo3-deploy'],
+  ]);
 
   set('repository', 'git@github.com:sourcebrokergit/t3base13.git');
 
@@ -118,7 +108,7 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
       ->setHostname('vm-dev.example.com')
       ->setRemoteUser('deploy')
       ->set('branch', 'master')
-      ->set('bin/php', '/home/www/t3base13-public/production/.bin/php');
+      ->set('bin/php', '/usr/bin/php82')
       ->set('public_urls', ['https://production-t3base13.example.com'])
       ->set('deploy_path', '/home/www/t3base13/production');
 
@@ -126,13 +116,9 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
       ->setHostname('vm-dev.example.com')
       ->setRemoteUser('deploy')
       ->set('branch', 'master')
-      ->set('bin/php', '/home/www/t3base13-public/staging/.bin/php');
+      ->set('bin/php', '/usr/bin/php82')
       ->set('public_urls', ['https://staging-t3base13.example.com'])
       ->set('deploy_path', '/home/www/t3base13/staging');
-
-  localhost('local')
-      ->set('bin/php', 'php')
-      ->set('deploy_path', getcwd());
 
 
 Changelog
