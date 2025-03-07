@@ -49,17 +49,14 @@ task('deploy', [
     // Standard deployer task.
     'deploy:clear_paths',
 
-    // This task do also database:updateschema
-    'typo3:extension:setup',
-
     // Warm up system cache for TYPO3.
     'typo3:cache:warmup:system',
 
+    // This task do also database:updateschema
+    'typo3:extension:setup',
+
     // Standard deployer task.
     'deploy:symlink',
-
-    // Flush cache for pages.
-    'typo3:cache:flush:pages',
 
     // Clear php cli cache.
     // Read more on https://github.com/sourcebroker/deployer-extended#cache-clear-php-cli
@@ -68,6 +65,9 @@ task('deploy', [
     // Clear frontend http cache.
     // Read more on https://github.com/sourcebroker/deployer-extended#cache-clear-php-http
     'cache:clear_php_http',
+
+    // Flush cache for pages.
+    'typo3:cache:flush:pages',
 
     // Standard deployer task.
     'deploy:unlock',

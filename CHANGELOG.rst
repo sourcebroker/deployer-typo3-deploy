@@ -9,6 +9,7 @@ Changelog
    setting. Optimise conditions for web_path and bin/typo3.
 2) [TASK][BREAKING] Remove changing for ``branch`` setting. If needed should be put higher at project/agency package level.
    This is base package that should be compatible with default Deployer settings as much as possible.
+3) [TASK][BREAKING] Refactor order of deploy tasks.
 
 0.3.0
 -----
