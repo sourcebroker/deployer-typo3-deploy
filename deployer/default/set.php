@@ -4,8 +4,6 @@ namespace Deployer;
 
 set('composer_channel', 2);
 
-set('branch_detect_to_deploy', false);
-
 set('log_files', 'var/log/typo3_*.log');
 
 $composerConfig = null;

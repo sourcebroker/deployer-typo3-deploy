@@ -5,8 +5,10 @@ Changelog
 0.4.0
 -----
 
-1) Remove setting for "user" as it was only for CI type of deploy. Remove not existing "allow_anonymous_stats"
+1) [TASK] Remove setting for "user" as it was only for CI type of deploy. Remove not existing "allow_anonymous_stats"
    setting. Optimise conditions for web_path and bin/typo3.
+2) [TASK][BREAKING] Remove changing for ``branch`` setting. If needed should be put higher at project/agency package level.
+   This is base package that should be compatible with default Deployer settings as much as possible.
 
 0.3.0
 -----
