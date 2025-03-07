@@ -2,10 +2,6 @@
 
 namespace Deployer;
 
-use Deployer\Exception\RunException;
-
-set('allow_anonymous_stats', false);
-
 set('composer_channel', 2);
 
 set('branch_detect_to_deploy', false);
@@ -21,7 +17,7 @@ if (file_exists('./composer.json')) {
 }
 
 set('web_path', function () use ($composerConfig) {
-    if ($composerConfig !== null && isset($composerConfig['extra']['typo3/cms']['web-dir'])) {
+    if (isset($composerConfig['extra']['typo3/cms']['web-dir'])) {
         return rtrim($composerConfig['extra']['typo3/cms']['web-dir'], '/') . '/';
     }
 
@@ -29,7 +25,7 @@ set('web_path', function () use ($composerConfig) {
 });
 
 set('bin/typo3', function () use ($composerConfig) {
-    if ($composerConfig !== null && isset($composerConfig['config']['bin-dir'])) {
+    if (isset($composerConfig['config']['bin-dir'])) {
         return $composerConfig['config']['bin-dir'] . '/typo3';
     }
 
@@ -82,20 +78,3 @@ set('clear_paths', [
     'rector.php',
     'typoscript-lint.yml'
 ]);
-
-set('user', function () {
-    if (getenv('CI') !== false) {
-        $commitAuthor = getenv('GITLAB_USER_NAME');
-        return $commitAuthor ?: 'ci';
-    }
-
-    try {
-        return runLocally('git config --get user.name');
-    } catch (RunException $exception) {
-        try {
-            return runLocally('whoami');
-        } catch (RunException $exception) {
-            return 'no_user';
-        }
-    }
-});

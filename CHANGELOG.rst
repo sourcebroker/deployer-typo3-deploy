@@ -2,6 +2,12 @@
 Changelog
 ---------
 
+0.4.0
+-----
+
+1) Remove setting for "user" as it was only for CI type of deploy. Remove not existing "allow_anonymous_stats"
+   setting. Optimise conditions for web_path and bin/typo3.
+
 0.3.0
 -----
 
