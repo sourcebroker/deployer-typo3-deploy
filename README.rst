@@ -107,7 +107,7 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
   host('production')
       ->setHostname('vm-dev.example.com')
       ->setRemoteUser('deploy')
-      ->set('branch', 'master')
+      ->set('branch', 'main')
       ->set('bin/php', '/usr/bin/php82')
       ->set('public_urls', ['https://production-t3base13.example.com'])
       ->set('deploy_path', '/home/www/t3base13/production');
@@ -115,7 +115,7 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
   host('staging')
       ->setHostname('vm-dev.example.com')
       ->setRemoteUser('deploy')
-      ->set('branch', 'master')
+      ->set('branch', 'main')
       ->set('bin/php', '/usr/bin/php82')
       ->set('public_urls', ['https://staging-t3base13.example.com'])
       ->set('deploy_path', '/home/www/t3base13/staging');
@@ -124,7 +124,7 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
 Changelog
 ---------
 
-See https://github.com/sourcebroker/deployer-typo3-deploy/blob/master/CHANGELOG.rst
+See https://github.com/sourcebroker/deployer-typo3-deploy/blob/main/CHANGELOG.rst
 
 
 .. _sourcebroker/deployer-extended: https://github.com/sourcebroker/deployer-extended
