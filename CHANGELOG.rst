@@ -2,6 +2,13 @@
 Changelog
 ---------
 
+0.6.0
+-----
+
+1) [TASK] Remove not used ``set('composer_channel', 2);``. It must be set now explicitly in project deploy.php
+    or custom deploy package and ``bin/composer`` override must be explicitly included with loader
+    ``'path' => 'vendor/sourcebroker/deployer-extended/includes/composer.php'``
+
 0.5.0
 -----
 
