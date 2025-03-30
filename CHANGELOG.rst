@@ -2,6 +2,12 @@
 Changelog
 ---------
 
+0.8.0
+-----
+
+1) [TASK][BREAKING] Remove additional tasks form ``sourcebroker/deployer-extended``. They should be part of higher level package.
+   ``sourcebroker/deployer-typo3-deploy`` should be only solid base for TYPO3 deploy. Remove dependency to ``sourcebroker/deployer-extended``.
+
 0.7.0
 -----
 
