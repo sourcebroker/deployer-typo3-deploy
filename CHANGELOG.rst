@@ -2,6 +2,11 @@
 Changelog
 ---------
 
+0.9.0
+-----
+
+1) [TASK][BREAKING] Add TYPO3 tasks descriptions. Make tasks hidden by default. USer acn unhide them if needed.
+
 0.8.0
 -----
 
