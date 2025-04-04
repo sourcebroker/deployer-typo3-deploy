@@ -2,6 +2,12 @@
 Changelog
 ---------
 
+0.10.0
+-----
+
+1) [TASK] Remove loader for ``sourcebroker/deployer-extended``. Dependency itself was removed already in ``v0.8.0``.
+
+
 0.9.0
 -----
 
