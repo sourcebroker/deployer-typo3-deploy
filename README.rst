@@ -57,6 +57,8 @@ have very slim ``deploy.php`` file in order to have nice possibility to upgrade 
 
   set('repository', 'git@github.com:sourcebrokergit/t3base13.git');
 
+  task('deploy:writable')->disable(); // Disable deploy:writable task if httpd user is the same as ssh user.
+
   host('production')
       ->setHostname('vm-dev.example.com')
       ->setRemoteUser('deploy')
