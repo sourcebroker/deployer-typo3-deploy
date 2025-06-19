@@ -31,16 +31,16 @@ task('deploy', [
     // Standard Deployer task.
     'deploy:clear_paths',
 
-    // TYPO3 special task: warm up system cache
+    // deployer-typo3-deploy task.
     'typo3:cache:warmup:system',
 
-    // TYPO3 special task: set up extension with database update schema
+    // deployer-typo3-deploy task.
     'typo3:extension:setup',
 
     // Standard Deployer task.
     'deploy:symlink',
 
-    // TYPO3 special task: flush cache for pages.
+    // deployer-typo3-deploy task.
     'typo3:cache:flush:pages',
 
     // Standard Deployer task.

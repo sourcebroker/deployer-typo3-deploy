@@ -2,6 +2,14 @@
 Changelog
 ---------
 
+
+
+2.0.0
+-----
+
+1) [TASK][BREAKING] Add a task preventing deployment when it runs in CI.
+
+
 1.0.0
 -----
 
