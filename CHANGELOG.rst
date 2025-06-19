@@ -2,13 +2,11 @@
 Changelog
 ---------
 
-
-
 2.0.0
 -----
 
 1) [TASK][BREAKING] Add a task preventing deployment when it runs in CI.
-
+2) [TASK] Configure loader to throw error when `sourcebroker/deployer-typo3-deploy-ci` loaded together.
 
 1.0.0
 -----
