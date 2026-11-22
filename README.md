@@ -72,5 +72,5 @@ host('staging')
 
 ## Changelog
 
-See [CHANGELOG.rst](https://github.com/sourcebroker/deployer-typo3-deploy/blob/main/CHANGELOG.rst)
+See [CHANGELOG.md](https://github.com/sourcebroker/deployer-typo3-deploy/blob/main/CHANGELOG.md)
 
